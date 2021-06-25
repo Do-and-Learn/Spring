@@ -1,0 +1,16 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<form method="POST" action="/register" th:object="${registerForm}">
+    <label for="username">帳號</label>
+    <input type="text" th:field="*{username}"/><br />
+
+    <label for="password">密碼</label>
+    <input type="password" th:field="*{password}"/><br />
+
+    <input type="submit" value="註冊"/>
+</form>
+</body>
+</html>
