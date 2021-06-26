@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登入</title>
+</head>
+<body>
+<div style="color:red;" th:if="${param.error}">無效的帳號密碼</div>
+<form th:action="@{/login}" method="post">
+    <input type="text" name="username" placeholder="帳號"/> <br />
+    <input type="password" name="password" placeholder="密碼"/> <br />
+    <input type="submit" value="登入"/>
+</form>
+<a href="/register">註冊</a>
+</body>
+</html>

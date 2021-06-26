@@ -22,6 +22,11 @@ public class HomeController {
         return "hello";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
     @GetMapping("/register")
     public String getRegisterForm(RegisterForm registerForm) {
         return "registerForm";
@@ -29,7 +34,7 @@ public class HomeController {
 
     @PostMapping("/register")
     public String processRegistration(@Valid RegisterForm registerForm, Errors errors) {
-        if(errors.hasErrors())
+        if (errors.hasErrors())
             return "registerForm";
         userDetailsRepository.save(registerForm.toUser(passwordEncoder));
         return "redirect:/";
