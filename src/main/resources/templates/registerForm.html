@@ -1,14 +1,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <style>.validationError { color: red; }</style>
 </head>
 <body>
 <form method="POST" action="/register" th:object="${registerForm}">
     <label for="username">帳號</label>
-    <input type="text" th:field="*{username}"/><br />
+    <input type="text" th:field="*{username}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span><br/>
 
     <label for="password">密碼</label>
-    <input type="password" th:field="*{password}"/><br />
+    <input type="password" th:field="*{password}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+    <br/>
 
     <input type="submit" value="註冊"/>
 </form>
